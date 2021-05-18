@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2021 at 01:33 PM
+-- Generation Time: May 18, 2021 at 02:31 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.3.27
 
@@ -232,7 +232,7 @@ CREATE TABLE `customer` (
   `password` varchar(40) NOT NULL,
   `status` varchar(40) NOT NULL,
   `createdDate` datetime NOT NULL DEFAULT current_timestamp(),
-  `updatedDate` datetime DEFAULT NULL
+  `updatedDate` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -317,7 +317,8 @@ CREATE TABLE `new_category` (
 INSERT INTO `new_category` (`categoryId`, `name`, `parentId`, `pathId`, `status`, `attribute2`) VALUES
 (3, 'Small Bed', 0, '3', 'Enable', NULL),
 (4, 'LivingRoom', 3, '3=4', 'Enable', NULL),
-(26, 'pqr', 0, '26', 'Enable', NULL);
+(26, 'pqr', 0, '26', 'Enable', NULL),
+(30, 'ABC', 4, '3=4=30', 'Enable', NULL);
 
 -- --------------------------------------------------------
 
@@ -727,7 +728,8 @@ ALTER TABLE `config_group`
 -- Indexes for table `customer`
 --
 ALTER TABLE `customer`
-  ADD PRIMARY KEY (`customerId`);
+  ADD PRIMARY KEY (`customerId`),
+  ADD KEY `groupId` (`groupId`);
 
 --
 -- Indexes for table `customer_address`
@@ -901,7 +903,7 @@ ALTER TABLE `customer_group`
 -- AUTO_INCREMENT for table `new_category`
 --
 ALTER TABLE `new_category`
-  MODIFY `categoryId` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `categoryId` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `payment`
@@ -996,6 +998,12 @@ ALTER TABLE `cartitem`
 --
 ALTER TABLE `config`
   ADD CONSTRAINT `config_ibfk_1` FOREIGN KEY (`groupId`) REFERENCES `config_group` (`groupId`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `customer`
+--
+ALTER TABLE `customer`
+  ADD CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`groupId`) REFERENCES `customer_group` (`groupId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `customer_address`
