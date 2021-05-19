@@ -18,7 +18,7 @@
                                         <?php $options = $this->getAttributeOption($attribute->attributeId); ?>
                                         <?php if ($options) :?>
                                         <?php foreach ($options as $key => $option) : ?>
-                                            <option value="<?php echo $option->name; ?>" <?php if ($product->{$option->name}) {
+                                            <option value="<?php echo $option->name; ?>" <?php if ($product->{$option->code} == $option->name) {
                                                 echo "selected";
                                             } ?>>
                                                 <?php echo $option->name; ?>

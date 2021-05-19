@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2021 at 02:31 PM
+-- Generation Time: May 19, 2021 at 01:13 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.3.27
 
@@ -241,8 +241,7 @@ CREATE TABLE `customer` (
 
 INSERT INTO `customer` (`customerId`, `groupId`, `firstName`, `lastName`, `email`, `phone`, `password`, `status`, `createdDate`, `updatedDate`) VALUES
 (1, 1, 'Dhairya', 'Patel', 'dhairya762@gmail.com', '', '12345', 'Enable', '2021-05-14 19:43:51', NULL),
-(2, 2, 'Bhavesh', 'Patel', 'abc@gmail.com', '', '12345', 'Enable', '2021-05-14 19:44:06', NULL),
-(3, 1, 'Bhavisha', 'Patel', 'pqr@123gmail.com', '', '12345', 'Enable', '2021-05-16 17:36:48', NULL);
+(2, 2, 'Bhavesh', 'Patel', 'abc@gmail.com', '', '12345', 'Enable', '2021-05-14 19:44:06', NULL);
 
 -- --------------------------------------------------------
 
@@ -269,9 +268,7 @@ INSERT INTO `customer_address` (`addressId`, `customerId`, `address`, `city`, `s
 (1, 1, 'SONI SHERI,OPP. JAIN DERASAR MAIN BAJAR KALAVAD', 'KALAVAD(SHITALA)', 'Gujarat', 361160, 'India', 'billing'),
 (2, 1, 'SONI SHERI,OPP. JAIN DERASAR MAIN BAJAR KALAVAD', 'KALAVAD(SHITALA)', 'Gujarat', 361160, 'India', 'shipping'),
 (3, 2, 'SONI SHERI,OPP. JAIN DERASAR MAIN BAJAR KALAVAD', 'KALAVAD(SHITALA)', 'Gujarat', 361160, 'India', 'billing'),
-(4, 2, 'SONI SHERI,OPP. JAIN DERASAR MAIN BAJAR KALAVAD', 'KALAVAD(SHITALA)', 'Gujarat', 361160, 'India', 'shipping'),
-(5, 3, 'SONI SHERI,OPP. JAIN DERASAR MAIN BAJAR KALAVAD', 'KALAVAD(SHITALA)', 'Gujarat', 361160, 'India', 'billing'),
-(6, 3, 'SONI SHERI,OPP. JAIN DERASAR MAIN BAJAR KALAVAD', 'KALAVAD(SHITALA)', 'Gujarat', 361160, 'India', 'shipping');
+(4, 2, 'SONI SHERI,OPP. JAIN DERASAR MAIN BAJAR KALAVAD', 'KALAVAD(SHITALA)', 'Gujarat', 361160, 'India', 'shipping');
 
 -- --------------------------------------------------------
 
