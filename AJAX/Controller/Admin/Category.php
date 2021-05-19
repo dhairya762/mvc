@@ -18,7 +18,7 @@ class Category extends \Controller\Core\Admin {
     { 
         try {
             $category = \Mage::getModel('Model\Category');
-            $id = $this->getRequest()->getGet('categoryId');
+            $id = $this->getRequest()->getGet('id');
             if ($id) {
                 $category = $category->load($id);
                 $pathId = $category->pathId;
@@ -46,8 +46,8 @@ class Category extends \Controller\Core\Admin {
                 }
                 $query = "SELECT * FROM `{$category->getTableName()}` WHERE `parentId` = '{$category->parentId}' ORDER BY `categoryId` DESC";
                 $category = $category->fetchRow($query);
-                $categoryId = $category->categoryId;
-                $category = $category->load($categoryId);
+                $id = $category->categoryId;
+                $category = $category->load($id);
                 $category->updatePathId();
             }
         } 
@@ -63,7 +63,7 @@ class Category extends \Controller\Core\Admin {
         $editBlock = \Mage::getBlock('Block\Admin\Category\Edit');
         $leftBlock=\Mage::getBlock('Block\Admin\Category\Edit\Tabs');
         $category = \Mage::getModel('Model\Category');
-        if ($id = $this->getRequest()->getGet('categoryId')) {
+        if ($id = $this->getRequest()->getGet('id')) {
             $category = $category->load($id);
             if (!$category) {
                 throw new \Exception("No Product Data Found");
@@ -78,15 +78,15 @@ class Category extends \Controller\Core\Admin {
         try {
             $category=\Mage::getModel("Model\Category");
 
-            if ($categoryId = $this->getRequest()->getGet('categoryId')) {
-                $category = $category->load($categoryId);
+            if ($id = $this->getRequest()->getGet('id')) {
+                $category = $category->load($id);
                 if (!$category) {
                     throw new \Exception("Id is Invalid");
                 }
             }
             $pathId = $category->pathId;
             $parentId = $category->parentId;
-            $category->updateChildrenPathIds($pathId, $parentId, $categoryId);
+            $category->updateChildrenPathIds($pathId, $parentId, $id);
             
             $category->delete();
         }  
@@ -100,7 +100,7 @@ class Category extends \Controller\Core\Admin {
     public function statusAction()
     {
         $category = \Mage::getModel('Model\Category');
-        $id = $this->getRequest()->getGet('categoryId');
+        $id = $this->getRequest()->getGet('id');
         if ($id) {
             $category = $category->load($id);
             if (!$category) {

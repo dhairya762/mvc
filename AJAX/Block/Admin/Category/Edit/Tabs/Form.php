@@ -17,7 +17,7 @@ class Form extends \Block\Core\Template
     {
         if (!$category) {
             $category = \Mage::getModel('Model\category');
-            if ($id = $this->getRequest()->getGet('categoryId')) {
+            if ($id = $this->getRequest()->getGet('id')) {
                 $category = $category->load($id);
             }
         }
@@ -93,7 +93,7 @@ class Form extends \Block\Core\Template
 
     public function getTitle()
     {
-        $id = $this->getRequest()->getGet('categoryId');
+        $id = $this->getRequest()->getGet('id');
         if ($id) {
             return "Update Category";
         }

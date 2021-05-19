@@ -22,10 +22,10 @@ $categories = $this->getCategories()->getData();
                     <td style="text-align:center" class="gridtd"><?php echo $value->pathId; ?></td>
                     <td style="text-align:center" class="gridtd"><?php echo $value->status ?></td>
                     <td class="gridtr" style="text-align:center">
-                        <input type="button" class="btn btn-success" value="Edit" onclick="mage.setUrl('<?= $this->getUrl()->getUrl('editForm', null, ['id' => $category->categoryId], true); ?>').load()">
+                        <input type="button" class="btn btn-success" value="Edit" onclick="mage.setUrl('<?= $this->getUrl()->getUrl('editForm', null, ['id' => $value->categoryId]); ?>').load()">
                     </td>
                     <td class="gridtr" style="text-align:center">
-                        <input type="button" class="btn btn-danger" value="Delete" onclick="mage.setUrl('<?= $this->getUrl()->getUrl('delete', null, ['id' => $category->categoryId], true); ?>').load();">
+                        <input type="button" class="btn btn-danger" value="Delete" onclick="mage.setUrl('<?= $this->getUrl()->getUrl('delete', null, ['id' => $value->categoryId]); ?>').load();">
                     </td>
                 </tr>
             <?php endforeach; ?>
