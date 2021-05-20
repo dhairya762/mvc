@@ -24,6 +24,9 @@ class Option extends \Controller\Core\Admin
             }
         }
         if(isset($ids) && $ids){
+            if (empty($_POST)) {
+                $ids = [];
+            }
             $query = "DELETE FROM `{$attributeOption->getTableName()}` WHERE `{$attributeOption->getPrimaryKey()}` IN (".implode(",",$ids).");";
             $attributeOption->delete($query);
         }
@@ -39,10 +42,7 @@ class Option extends \Controller\Core\Admin
                 $attributeOption->save($query);
             }
         }
-        $leftBlock = \Mage::getBlock('Block\Admin\Attribute\Edit\Tabs');
-        $editBlock = \Mage::getBlock('Block\Admin\Attribute\Edit');
-        $editBlock = $editBlock->setTab($leftBlock)->setTableRow($attributeOption)->toHtml();
-        $this->makeResponse($editBlock);
+        $this->redirect('grid', 'attribute');
     }
 }
 

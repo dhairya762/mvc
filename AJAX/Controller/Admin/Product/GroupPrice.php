@@ -41,9 +41,10 @@ class GroupPrice extends \Controller\Core\Admin
                 }
             }
         }
-        $leftBlock = \Mage::getBlock('Block\Admin\Product\Edit\Tabs');
-        $editBlock = \Mage::getBlock('Block\Admin\Product\Edit');
-        $editBlock = $editBlock->setTab($leftBlock)->setTableRow($productGroup)->toHtml();
-        $this->makeResponse($editBlock);
+        $this->redirect('grid', 'product');
+        // $leftBlock = \Mage::getBlock('Block\Admin\Product\Edit\Tabs');
+        // $editBlock = \Mage::getBlock('Block\Admin\Product\Edit');
+        // $editBlock = $editBlock->setTab($leftBlock)->setTableRow($productGroup)->toHtml();
+        // $this->makeResponse($editBlock);
     }
 }

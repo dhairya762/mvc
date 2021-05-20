@@ -26,6 +26,9 @@ class Config extends \Controller\Core\Admin
             }
         }
         if (isset($ids) && $ids) {
+            if (empty($_POST)) {
+                $ids = [];
+            }
             $query = "DELETE FROM `config` WHERE `configId` IN (" . implode(",", $ids) . ")";
             $config->delete($query);
         }
@@ -42,9 +45,10 @@ class Config extends \Controller\Core\Admin
                 $config->save($query);
             }
         }
-        $leftBlock = \Mage::getBlock('Block\Admin\ConfigGroup\Edit\Tabs');
-        $editBlock = \Mage::getBlock('Block\Admin\ConfigGroup\Edit');
-        $editBlock = $editBlock->setTab($leftBlock)->setTableRow($config)->toHtml();
-        $this->makeResponse($editBlock);
+        $this->redirect('grid', 'configGroup');
+        // $leftBlock = \Mage::getBlock('Block\Admin\ConfigGroup\Edit\Tabs');
+        // $editBlock = \Mage::getBlock('Block\Admin\ConfigGroup\Edit');
+        // $editBlock = $editBlock->setTab($leftBlock)->setTableRow($config)->toHtml();
+        // $this->makeResponse($editBlock);
     }
 }

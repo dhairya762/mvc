@@ -49,9 +49,6 @@ class Option extends \Controller\Core\Admin
             $query = "DELETE FROM `{$option->getTableName()}` WHERE `{$option->getPrimaryKey()}` IN (" . implode(",", $ids) . ");";
             $option->delete($query);
         }
-        $leftBlock = \Mage::getBlock('Block\Admin\Question\Edit\Tabs');
-        $editBlock = \Mage::getBlock('Block\Admin\Customer\Edit');
-        $editBlock = $editBlock->setTab($leftBlock)->setTableRow($question)->toHtml();
-        $this->makeResponse($editBlock);
+        $this->redirect('grid', 'question');
     }
 }

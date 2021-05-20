@@ -23,11 +23,11 @@ class Media extends \Controller\Core\Admin
                 $this->getMessage()->setFailure('Unable to Insert.');
             }
         }
-
-        $leftBlock = \Mage::getBlock('Block\Admin\Product\Edit\Tabs');
-        $editBlock = \Mage::getBlock('Block\Admin\Product\Edit');
-        $editBlock = $editBlock->setTab($leftBlock)->setTableRow($media)->toHtml();
-        $this->makeResponse($editBlock);
+        $this->redirect('grid', 'product');
+        // $leftBlock = \Mage::getBlock('Block\Admin\Product\Edit\Tabs');
+        // $editBlock = \Mage::getBlock('Block\Admin\Product\Edit');
+        // $editBlock = $editBlock->setTab($leftBlock)->setTableRow($media)->toHtml();
+        // $this->makeResponse($editBlock);
     }
 
     public function updateImageAction()
@@ -73,10 +73,11 @@ class Media extends \Controller\Core\Admin
             }
 
         }
-        $leftBlock = \Mage::getBlock('Block\Admin\Product\Edit\Tabs');
-        $editBlock = \Mage::getBlock('Block\Admin\Product\Edit');
-        $editBlock = $editBlock->setTab($leftBlock)->setTableRow($media)->toHtml();
-        $this->makeResponse($editBlock);
+        $this->redirect('grid', 'product');
+        // $leftBlock = \Mage::getBlock('Block\Admin\Product\Edit\Tabs');
+        // $editBlock = \Mage::getBlock('Block\Admin\Product\Edit');
+        // $editBlock = $editBlock->setTab($leftBlock)->setTableRow($media)->toHtml();
+        // $this->makeResponse($editBlock);
     }
 
     public function removeImageAction()
@@ -101,9 +102,10 @@ class Media extends \Controller\Core\Admin
                 }
             }
         }
-        $leftBlock = \Mage::getBlock('Block\Admin\Product\Edit\Tabs');
-        $editBlock = \Mage::getBlock('Block\Admin\Product\Edit');
-        $editBlock = $editBlock->setTab($leftBlock)->setTableRow($media)->toHtml();
-        $this->makeResponse($editBlock);
+        $this->redirect('grid', 'product');
+        // $leftBlock = \Mage::getBlock('Block\Admin\Product\Edit\Tabs');
+        // $editBlock = \Mage::getBlock('Block\Admin\Product\Edit');
+        // $editBlock = $editBlock->setTab($leftBlock)->setTableRow($media)->toHtml();
+        // $this->makeResponse($editBlock);
     }
 }
